@@ -10,4 +10,5 @@ class TestListOrders:
         with allure.step('Возврат списка заказов'):
             response = OrderMethods.orders_list()
         with allure.step('Проверка ответа'):
+            assert response.status_code == 200
             assert 'id' and 'courierId' in response.text

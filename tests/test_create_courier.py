@@ -21,6 +21,7 @@ class TestCreateCourier:
         with allure.step('Создание курьера'):
             response = CourierMethods.create_courier(create_test_courier)
         with allure.step('Проверка ответа'):
+            assert response.status_code == 201
             assert response.text == data.SUCCESSFUL_RESPONSE
 
     @allure.title('Ошибка при создании двух одинаковых курьеров')

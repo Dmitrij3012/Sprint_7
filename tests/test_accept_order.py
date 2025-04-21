@@ -14,6 +14,7 @@ class TestAcceptOrder:
             response = OrderMethods.accept_order(order_id, courier_id)
         with allure.step('Проверка ответа'):
             assert response.status_code == 200
+            assert response.json()['ok'] is True
 
     @allure.title('Ошибка принятия заказа с отсутствующим id курьера')
     @allure.description('Тест проверяет ошибку принятия заказа с отсутствующим id курьера.')

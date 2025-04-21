@@ -21,6 +21,7 @@ class TestDeleteCourier:
         with allure.step('Создание и удаление курьера'):
             response = CourierMethods.delete_courier(create_test_courier_id)
         with allure.step('Проверка ответа'):
+            assert response.status_code == 200
             assert response.text == data.SUCCESSFUL_RESPONSE
 
     @allure.title('Ошибка удаления при отсутствии id')
